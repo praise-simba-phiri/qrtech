@@ -1,0 +1,28 @@
+{
+  "name": "QuantumResolve Technologies",
+  "short_name": "QR TECH",
+  "description": "Empowering Malawi Through Smart Innovation That Matters",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000014",
+  "theme_color": "#0770FF",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "categories": ["technology", "business", "design"],
+  "lang": "en-US"
+}
