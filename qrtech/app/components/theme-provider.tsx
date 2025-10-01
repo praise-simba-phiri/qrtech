@@ -36,6 +36,8 @@ function ThemeInitializer({ children }: { children: React.ReactNode }) {
 
   // Apply theme class to HTML element for CSS variables
   React.useEffect(() => {
+    if (!mounted) return
+    
     const root = document.documentElement
     if (resolvedTheme === 'dark') {
       root.classList.add('dark')
@@ -44,15 +46,22 @@ function ThemeInitializer({ children }: { children: React.ReactNode }) {
       root.classList.add('light')
       root.classList.remove('dark')
     }
-  }, [resolvedTheme])
+  }, [resolvedTheme, mounted])
 
   // Prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-light-background dark:bg-dark-background">
+      <div 
+        className="flex items-center justify-center min-h-screen bg-light-background dark:bg-dark-background"
+        style={{ 
+          // Prevent layout shift
+          minHeight: '100vh',
+          width: '100%'
+        }}
+      >
         <div className="text-center">
           <div className="w-8 h-8 border-2 border-light-primary dark:border-dark-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-light-text-secondary dark:text-dark-text-secondary">
+          <p className="text-light-text-secondary dark:text-dark-text-secondary text-sm">
             Loading QuantumResolve...
           </p>
         </div>
